@@ -34,6 +34,20 @@ public class Main {
 
         System.out.println("Total distance = " + totalDistance);
 
+        int similarityScore = calculateSimulatiryScore(List1, List2);
+        System.out.println("Simulatiry score = " + similarityScore);
+
+    }
+
+    private static int calculateSimulatiryScore(ArrayList<Integer> list1, ArrayList<Integer> list2) {
+        int score = 0;
+
+        for(int i = 0; i < list1.size(); i++){
+            int occurrences = Collections.frequency(list2, list1.get(i));
+            score += occurrences * list1.get(i);
+        }
+
+        return score;
     }
 
     private static int subtractPairs(ArrayList<Integer> List1, ArrayList<Integer> List2){
